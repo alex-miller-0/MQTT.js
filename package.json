@@ -1,7 +1,7 @@
 {
-  "name": "react-native-mqtt-js",
+  "name": "react-native-mqtt-client",
   "description": "An MQTT client for React Native",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "contributors": [
     "Adam Rudd <adamvrr@gmail.com>",
     "Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)",
