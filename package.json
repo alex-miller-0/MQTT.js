@@ -1,6 +1,6 @@
 {
   "name": "react-native-mqtt-client",
-  "description": "Fork of MQTT.js to allow a React Native MQTT client",
+  "description": "An MQTT client for React Native",
   "version": "0.0.1",
   "contributors": [
     "Adam Rudd <adamvrr@gmail.com>",
@@ -21,6 +21,7 @@
   "main": "mqtt.js",
   "types": "types/index.d.ts",
   "scripts": {
+    "postinstall": "rn-nodeify --install stream,process,util --hack",
     "test": "node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly --",
     "pretest": "standard | snazzy",
     "tslint": "if [[ \"`node -v`\" != \"v4.3.2\" ]]; then tslint types/**/*.d.ts; fi",
@@ -60,7 +61,13 @@
     "./mqtt.js": "./lib/connect/index.js",
     "fs": false,
     "tls": false,
-    "net": false
+    "net": false,
+    "_stream_transform": "readable-stream/transform",
+    "_stream_readable": "readable-stream/readable",
+    "_stream_writable": "readable-stream/writable",
+    "_stream_duplex": "readable-stream/duplex",
+    "_stream_passthrough": "readable-stream/passthrough",
+    "stream": "stream-browserify"
   },
   "dependencies": {
     "base64-js": "^1.3.0",
@@ -73,7 +80,8 @@
     "minimist": "^1.2.0",
     "mqtt-packet": "^6.0.0",
     "pump": "^3.0.0",
-    "readable-stream": "^2.3.6",
+    "react-native-tcp": "^3.3.0",
+    "readable-stream": "^1.0.33",
     "reinterval": "^1.1.0",
     "split2": "^3.1.0",
     "websocket-stream": "^5.1.2",
@@ -108,5 +116,17 @@
     "env": [
       "mocha"
     ]
+  },
+  "react-native": {
+    "./mqtt.js": "./lib/connect/index.js",
+    "fs": false,
+    "tls": false,
+    "net": false,
+    "_stream_transform": "readable-stream/transform",
+    "_stream_readable": "readable-stream/readable",
+    "_stream_writable": "readable-stream/writable",
+    "_stream_duplex": "readable-stream/duplex",
+    "_stream_passthrough": "readable-stream/passthrough",
+    "stream": "stream-browserify"
   }
 }
